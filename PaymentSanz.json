@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PAYMENT SANZ 🐦‍🔥</title>
+
+<style>
+:root {
+  --bg-dark: #070014;
+  --card-dark: #111b3b;
+  --text-dark: #ffffff;
+  --accent: #00ffc3;
+  --accent2: #b300ff;
+  --whatsapp: #25D366;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #14002b, #000);
+  color: var(--text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CONTAINER 2 CARD */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARD UTAMA */
+.card {
+  background-color: var(--card-dark);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  max-width: 320px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 25px var(--accent), 0 0 60px rgba(0,255,195,0.3);
+}
+
+/* CARD KEDUA */
+.card2 {
+  border: 1px solid var(--accent2);
+  box-shadow: 0 0 25px var(--accent2), 0 0 60px rgba(179,0,255,0.4);
+}
+
+.card2 .pay-btn {
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+.card2 .pay-btn:hover {
+  background: var(--accent2);
+  color: black;
+}
+
+/* AVATAR */
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+}
+
+/* TITLE */
+h1 {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+/* BUTTON */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pay-btn {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.pay-btn:hover {
+  background: var(--accent);
+  color: black;
+}
+
+/* INFO */
+.info-box {
+  margin-top: 15px;
+  min-height: 60px;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+/* TELEGRAM */
+.whatsapp-button {
+  background: var(--whatsapp);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio autoplay loop id="bg-music">
+  <source src="https://9z9.web.id/be2683.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <img src="https://files.catbox.moe/5jxdq5.jpg" class="avatar">
+
+    <h1>Payment <span class="highlight">Sanz🦅</span></h1>
+
+    <div class="buttons">
+      <button class="pay-btn" onclick="showInfo('dana')">DANA</button>
+      <button class="pay-btn" onclick="showInfo('gopay')">GoPay</button>
+      <button class="pay-btn" onclick="showInfo('qris')">QRIS</button>
+    </div>
+
+    <div id="payment-info" class="info-box">
+      Pilih metode pembayaran
+    </div>
+
+    <button class="pay-btn" onclick="toggleMusic()">🎵 Music</button>
+
+    <a href="https://t.me/Sanzxyzbca" class="whatsapp-button">
+      Hubungi Telegram
+    </a>
+  </div>
+
+  <!-- CARD 2 -->
+<div class="card card2">
+  <h1>My Social Media 🔥</h1>
+
+  <div class="buttons">
+    <button class="pay-btn" onclick="openLink('https://www.tiktok.com/@Dhastecu.1')">Telegram</button>
+
+    <button class="pay-btn" onclick="openLink('https://wa.me/6285778591477')">WhatsApp</button>
+
+    <button class="pay-btn" onclick="openLink('https://instagram.com/sanzzoffc54')">Instagram</button>
+  </div>
+
+  <p style="margin-top:15px;font-size:13px;">
+    Klik untuk hubungi atau kepoin sosial media saya.
+  </p>
+</div>
+
+<script>
+  function openLink(url) {
+  window.open(url, "_blank");
+}
+const qrisUrl = "https://files.catbox.moe/sbo3uf.jpg";
+
+function showInfo(method) {
+  let box = document.getElementById("payment-info");
+
+  if (method === "dana") {
+    box.innerHTML = "DANA:<br>085778591477<br>A/n adha";
+  } else if (method === "gopay") {
+    box.innerHTML = "GoPay:<br>085778591477";
+  } else if (method === "qris") {
+    box.innerHTML = `<img src="${qrisUrl}" width="120">`;
+  }
+}
+
+function toggleMusic() {
+  let music = document.getElementById("bg-music");
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
+
+window.onload = () => {
+  document.querySelector(".container").style.opacity = "1";
+};
+</script>
+
+</body>
+</html>
